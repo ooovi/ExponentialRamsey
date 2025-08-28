@@ -90,4 +90,3 @@ unsafe def weaken (t u : parse parser.pexpr) : tactic Unit :=
 end Interactive
 
 end Tactic
-

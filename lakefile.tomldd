@@ -1,0 +1,11 @@
+
+name = "ExponentialRamsey"
+defaultTargets = ["ExponentialRamsey"]
+
+[leanOptions]
+autoImplicit = false        # Prevent typos to be interpreted as new free variables
+relaxedAutoImplicit = false
+
+[[require]]
+name = "mathlib"
+git = "https://github.com/leanprover-community/mathlib4.git"
