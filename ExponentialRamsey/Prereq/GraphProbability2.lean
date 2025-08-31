@@ -145,9 +145,7 @@ attribute [local instance] Fintype.toLocallyFiniteOrder
 
 section
 
-variable [Fintype V] [DecidableEq V] [Fintype (SimpleGraph V)]
-  [@DecidableRel (SimpleGraph V) _ (· < ·)] [@DecidableRel (SimpleGraph V) _ (· ≤ ·)]
-  [∀ G : SimpleGraph V, DecidableRel G.Adj]
+variable [Fintype V] [DecidableEq V] [Fintype (SimpleGraph V)] [@DecidableRel (SimpleGraph V) _ (· < ·)] [@DecidableRel (SimpleGraph V) _ (· ≤ ·)] [∀ G : SimpleGraph V, DecidableRel G.Adj]
 
 theorem weightingAux_sum_between (H₁ H₂ : SimpleGraph V)
     (h : H₁ ≤ H₂) :
@@ -337,9 +335,7 @@ def numberOfThings [Fintype V] [DecidableEq V] (G : SimpleGraph V) [DecidableRel
 
 section
 
-variable [Fintype V] [DecidableEq V] [Fintype (SimpleGraph V)]
-  [@DecidableRel (SimpleGraph V) _ (· < ·)] [@DecidableRel (SimpleGraph V) _ (· ≤ ·)]
-  [∀ G : SimpleGraph V, DecidableRel G.Adj]
+variable [Fintype V] [DecidableEq V] [Fintype (SimpleGraph V)] [@DecidableRel (SimpleGraph V) _ (· < ·)] [@DecidableRel (SimpleGraph V) _ (· ≤ ·)] [∀ G : SimpleGraph V, DecidableRel G.Adj]
 
 theorem weighted_number_cliques {k : ℕ} :
     ∑ G, weighting V p G * G.numberOfCliques k = (card V).choose k * p ^ k.choose 2 :=
@@ -361,8 +357,7 @@ theorem weighted_number_cliques {k : ℕ} :
     weightingAux_sum_between (spanningCoe (⊤ : SimpleGraph x)) ⊤ le_top
   rw [edgeFinset_card, edgeFinset_card] at this
   simp only [compl_top, edgeSet_bot, Set.card_empty, pow_zero, mul_one] at this
-  suffices h : Fintype.card ((spanningCoe (⊤ : SimpleGraph x)).edgeSet) = k.choose 2 by
-    simp only [h, this]
+  suffices h : Fintype.card ((spanningCoe (⊤ : SimpleGraph x)).edgeSet) = k.choose 2 by simp only [h, this]
   convert (card_edgeSet_spanningCoe_top x).trans _
   rw [mem_powersetCard] at hx
   simp only [hx]
